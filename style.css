@@ -1,0 +1,12 @@
+#particles-js {
+		height: 100%;
+		background-color: black;
+		background-size: cover;
+		display: flex;
+		align-items: center;
+		justify-items: center;
+	  }
+	  .body {
+		background-color: black;
+	  }
+	  
