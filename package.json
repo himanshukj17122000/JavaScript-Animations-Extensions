@@ -2,8 +2,17 @@
   "name": "webStarter",
   "displayName": "Web Animations",
   "publisher": "webStarter",
+  "author": {
+    "name": "Himanshu Jain"
+  },
+  "license": {
+    "url": "https://gitlab.oit.duke.edu/hkj4/vscodeextension-webanimations/-/blob/master/LICENSE"
+  },
+  "repository": {
+    "url": "https://gitlab.oit.duke.edu/hkj4/vscodeextension-webanimations"
+  },
   "description": "Creates basic code for fun animations and design files ",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.44.0"
