@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [0.1.4]
+
+- Ball Animation for background. The ball shape can be changed accordingly by changing the CSS
+
 ## [0.1.0]
 
 - New Animation for Texts added

@@ -11,6 +11,9 @@ const AppParticle = require("./app");
 const fetch = require("node-fetch");
 const globalCSS = require("./global_styling");
 const axios = require("axios").default;
+var checkEmpty = require('extfs');
+
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 /**
@@ -254,6 +257,54 @@ function activate(context) {
       );
     }
   );
+  let BallAnimation = vscode.commands.registerCommand(
+    "webStarter.ballAnimation",
+    function () {
+      const BallHTML = TypePartHTML.BallAnimation;
+      const EmptyHTML = TypePartHTML.EmptyBall;
+      const BallAnimaton = CSS.BallAnimation;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      vscode.window.showInputBox().then((value) => {
+        if (value == undefined) {
+          return;
+        }
+        // checkEmpty.isEmpty(path.join(folderPath, "index.html"), function (empty) {
+        //   console.log("HELLO")
+        //   fs.appendFile(path.join(folderPath, "index.html"), EmptyHTML, (err) => {
+        //     if (err) {
+        //       vscode.window.showErrorMessage("Failed to create index.html");
+        //     }
+        //     vscode.window.showInformationMessage("Created index.html");
+        //   });
+        // });
+        fs.appendFile(path.join(folderPath, "index.html"), BallHTML, (err) => {
+          if (err) {
+            console.log(err);
+            vscode.window.showErrorMessage("Failed to create index.html");
+          }
+          vscode.window.showInformationMessage("Created index.html");
+        });
+        fs.appendFile(
+          path.join(folderPath, value.toString() + ".css"),
+          BallAnimaton,
+          (err) => {
+            if (err) {
+              console.log(err);
+              vscode.window.showErrorMessage(
+                `Failed to create ${value.toString() + ".css"} `
+              );
+            }
+            vscode.window.showInformationMessage(
+              `Created ${value.toString() + ".css"}`
+            );
+          }
+        );
+      });
+    }
+  );
 
   let disposableParticle = vscode.commands.registerCommand(
     "webStarter.createParticles",
@@ -303,6 +354,7 @@ function activate(context) {
   context.subscriptions.push(disposableGlobal);
   context.subscriptions.push(corona);
   context.subscriptions.push(TextAnimation);
+  context.subscriptions.push(BallAnimation);
 }
 exports.activate = activate;
 

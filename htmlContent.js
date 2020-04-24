@@ -1,3 +1,18 @@
+const BallAnimation = `<!--- PUT THE FOLLOWING LINE IN YOUR <head> tag to link the stylesheet--->
+<link rel="stylesheet" href="NAME OF YOUR STYLESHEET HERE"/>
+<b></b>
+ `;
+
+const EmptyBall = `<!DOCTYPE html>
+ <html>
+   <head>
+     <link rel="stylesheet" href="NAME OF YOUR STYLESHEET HERE" />
+   </head>
+   <body>
+     <b></b>
+   </body>
+ </html>`
+
 const TypePartHTML = `<!DOCTYPE html>
 
 <html lang="en">
@@ -140,4 +155,6 @@ module.exports = {
   HTMLType,
   HTMLAnime,
   HTMLTextAnim,
+  BallAnimation,
+  EmptyBall
 };
