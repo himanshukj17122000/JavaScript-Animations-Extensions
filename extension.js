@@ -11,8 +11,7 @@ const AppParticle = require("./app");
 const fetch = require("node-fetch");
 const globalCSS = require("./global_styling");
 const axios = require("axios").default;
-var checkEmpty = require('extfs');
-
+var checkEmpty = require("extfs");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -255,6 +254,23 @@ function activate(context) {
           vscode.window.showInformationMessage("Created styles.css");
         }
       );
+    }
+  );
+  let CubeAnimation = vscode.commands.registerCommand(
+    "webStarter.getCube",
+    function () {
+      const HTMLContent = TypePartHTML.ThreeHTML;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create index.html");
+        }
+        vscode.window.showInformationMessage("Created index.html");
+      });
     }
   );
   let BallAnimation = vscode.commands.registerCommand(

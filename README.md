@@ -2,7 +2,7 @@
 
 - This is a simple extension to allow the users to get a webpage with the particles animation on it. The users can then edit the web page to include the content they require for their own project.
 
-- Implement 5 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
+- Implement 6 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
 
 - Implement a styling sheet for your project that comes with styling options for almost all the components you would need in your project.
 
@@ -23,3 +23,5 @@ Make sure you are inside your project folder before running the commands. The fo
 - "Create Text Animations" allows the user to get different CSS based animations for the text they give. The files created are: index.html and styles.css. The animations use [animate.css](https://github.com/daneden/animate.css)
 
 - "Create Ball Animation" provides the user with a moving ball as the background of the webpage. The HTML and CSS code for both of them is provided and the CSS can be edited to change the shape of the moving object. The color and the other properties can be changed as well. An input box comes up in which the user can enter the name of the css file required. Another HTML file is created named index.html. This file would include the code that can be included in your original HTML file to get the animation.
+
+- "Create Cube Animation" provides the user with a 3D Animation of a cube on the webapge. A HTML file is created for this purpose and this can easily be incorporated in one's web pages. The animation used is [three.js](https://github.com/mrdoob/three.js/)
