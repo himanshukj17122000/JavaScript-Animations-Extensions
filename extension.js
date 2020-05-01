@@ -165,6 +165,42 @@ function activate(context) {
       });
     }
   );
+
+  let rocketAnim = vscode.commands.registerCommand(
+    "webStarter.createRocket",
+    function () {
+      const HTMLContent = TypePartHTML.RocketHTML;
+      const RocketScript = AppParticle.RocketJs;
+
+      const CSSContent = CSS.RocketCSS;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+      fs.writeFile(path.join(folderPath, "rocket.html"), HTMLContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create rocket.html");
+        }
+        vscode.window.showInformationMessage("Created rocket.html");
+      });
+      fs.writeFile(path.join(folderPath, "rocket.css"), CSSContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create rocket.css");
+        }
+        vscode.window.showInformationMessage("Created rocket.css");
+      });
+      fs.writeFile(path.join(folderPath, "rocket.js"), RocketScript, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create rocket.js");
+        }
+        vscode.window.showInformationMessage("Created rocket.js");
+      });
+    }
+  );
+
+
   let disposableAnime = vscode.commands.registerCommand(
     "webStarter.createAnime",
     function () {
@@ -428,6 +464,7 @@ function activate(context) {
   context.subscriptions.push(CubeAnimation);
   context.subscriptions.push(MovingBox);
   context.subscriptions.push(CarBlueprint);
+  context.subscriptions.push(rocketAnim);
 }
 exports.activate = activate;
 

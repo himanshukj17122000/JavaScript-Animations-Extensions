@@ -345,6 +345,52 @@ p {
         }
     }
 }`
+
+
+const RocketCSS = `path {
+    fill-opacity: 0;
+    transition: fill-opacity 1s;
+}
+
+.fill-1 g:first-of-type>path {
+    fill: #1c8ece;
+    fill-opacity: 1;
+}
+
+.fill-2 g:last-of-type>path {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+.fill-3 path:first-of-type {
+    fill: #f4a260;
+    fill-opacity: 1;
+}
+
+.fill-4 path:nth-of-type(2) {
+    fill: #ea3e2f;
+    fill-opacity: 1;
+}
+
+.fill-5 path:nth-of-type(3) {
+    fill: #d1d2d4;
+    fill-opacity: 1;
+}
+
+.fill-6 path:nth-of-type(4),
+.fill-6 path:nth-of-type(5) {
+    fill: #000000;
+    fill-opacity: 1;
+}
+
+.fill-7 path:nth-of-type(6) {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+.clear-stroke path {
+    stroke: none;
+}`
 module.exports = {
 	CSSContent,
 	CSSParticle,
@@ -352,5 +398,6 @@ module.exports = {
 	CSSAnime,
 	CSSText,
 	BallAnimation,
-	BOxMoving
+	BOxMoving,
+	RocketCSS
 };

@@ -1170,15 +1170,68 @@ const ViVusCar = `<!DOCTYPE html>
 
 </html>`
 
+const RocketHTML = `<!DOCTYPE html>
+<html>
+
+<head>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.3.2/vivus.js"></script>
+
+   <link rel="stylesheet" href='rocket.css'>
+</head>
+<svg version="1.1" id="canvas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+   y="0px" width="900px" height="600px" viewBox="0 0 900 600" enable-background="new 0 0 900 600" xml:space="preserve">
+
+
+   <path data-duration="50" fill="none" stroke="#000000"
+      d="M123.355,167.104c0,0-19.179-0.808-26.239,18.603c-5.056,13.908-57.376,60.016-57.376,60.016
+       s51.199-43.248,67.085-45.01c15.885-1.765,24.711-11.475,25.876-23.137C133.314,171.437,123.355,167.104,123.355,167.104z" />
+
+   <path data-duration="150" data-delay="100" fill="none" stroke="#000000" d="M217.325,66.237c-22.986,12.382-40.849,29.958-40.849,29.958l-53.121,70.91l3.5,3.93
+           l2.339,2.617l3.507,3.925l76.481-44.731c0,0,19.485-15.752,34.405-37.186c-5.108-3.649-10.118-8.066-14.756-13.266
+           C224.196,77.198,220.369,71.722,217.325,66.237z" />
+   <path data-duration="50" fill="none" stroke="#000000" d="M236.688,75.388c-3.943-4.417-7.303-9.048-10.101-13.706
+           c-3.159,1.396-6.253,2.928-9.262,4.554c3.044,5.485,6.871,10.961,11.507,16.157c4.638,5.2,9.648,9.617,14.756,13.266
+           c1.949-2.808,3.822-5.708,5.565-8.686C244.841,83.669,240.63,79.802,236.688,75.388z" />
+   <path data-duration="50" fill="none" stroke="#000000"
+      d="M249.153,86.974c6.02-10.291,10.467-21.47,11.105-32.619
+           c-11.155-0.633-22.765,2.514-33.671,7.328c2.797,4.658,6.158,9.289,10.101,13.706C240.63,79.802,244.841,83.669,249.153,86.974z" />
+
+   <g>
+      <polygon data-duration="300" data-async fill="none" stroke="#000000" points="134.692,153.46 124.182,141.681 107.865,144.48 86.899,156.131 137.089,111.345
+       162.375,114.65  " />
+      <polygon data-duration="300" fill="none" stroke="#000000" points="147.544,167.86 158.056,179.642 153.425,195.53 139.473,215.042 189.663,170.251
+       189.251,144.756     " />
+   </g>
+   <path data-delay="25" fill="none" stroke="#000000" d="M130.833,172.19c-0.903,0.809-19.278,15.882-20.08,14.983l0,0
+       c-0.808-0.904,16.257-17.455,17.16-18.256l46.473-41.477c0.904-0.801,2.295-0.718,3.099,0.184l0,0
+       c0.809,0.901,0.729,2.292-0.173,3.096L130.833,172.19z" />
+   <path opacity="0.3" fill="none" stroke="#000000" d="M255.783,56.464c0,0-35.806,12.93-49.021,21.617
+       c-16.366,10.76-26.602,20.845-26.602,20.845l-34.603,45.313C145.558,144.24,207.19,79.621,255.783,56.464z" />
+   <g>
+      <polygon data-async opacity="0.5" fill="none" stroke="#000000" points="157.303,116.448 138.103,114.333 112.935,136.794 136.514,124.41
+       131.942,133.301     " />
+      <polygon opacity="0.5" fill="none" stroke="#000000" points="184.621,154.601 186.855,168.958 161.261,189.867 177.735,168.436
+       168.498,169.947     " />
+   </g>
+
+</svg>
+
+<body>
+
+   <script src="rocket.js"></script>
+</body>
+
+</html>`
 module.exports = {
-  TypePartHTML,
-  HTMLParticle,
-  HTMLType,
-  HTMLAnime,
-  HTMLTextAnim,
-  BallAnimation,
-  EmptyBall,
-  ThreeHTML,
-  BoxMoving,
-  ViVusCar
+   TypePartHTML,
+   HTMLParticle,
+   HTMLType,
+   HTMLAnime,
+   HTMLTextAnim,
+   BallAnimation,
+   EmptyBall,
+   ThreeHTML,
+   BoxMoving,
+   ViVusCar,
+   RocketHTML
 };

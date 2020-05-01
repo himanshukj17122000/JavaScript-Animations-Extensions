@@ -293,8 +293,17 @@ const CarJs = `new Vivus('canvas', {
       car.reset().play();
   }, 3000);
 });`
+
+const RocketJs = `new Vivus('canvas', {
+  start: 'autostart',
+  type: 'scenario-sync',
+  pathTimingFunction: Vivus.EASE_OUT
+}, function (obj) {
+  obj.el.classList.add('fill-1', 'fill-2', 'fill-3', 'fill-4', 'fill-5', 'fill-6', 'fill-7', 'clear-stroke');
+});`
 module.exports = {
   AppParticles,
   Stagger,
-  CarJs
+  CarJs,
+  RocketJs
 };
