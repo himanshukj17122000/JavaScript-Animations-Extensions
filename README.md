@@ -2,7 +2,7 @@
 
 - This is a simple extension to allow the users to get a webpage with the particles animation on it. The users can then edit the web page to include the content they require for their own project.
 
-- Implement 7 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
+- Implement 8 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
 
 - Implement a styling sheet for your project that comes with styling options for almost all the components you would need in your project.
 
@@ -26,4 +26,7 @@ Make sure you are inside your project folder before running the commands. The fo
 
 - "Create Cube Animation" provides the user with a 3D Animation of a cube on the webapge. A HTML file is created for this purpose and this can easily be incorporated in one's web pages. The animation used is [three.js](https://github.com/mrdoob/three.js/)
 
-- "Create Moving Box" provides the user with a box swinging on the screen. The Animation has been taken from a CodePen example and uses SASS for the animation.
+- "Create Moving Box" provides the user with a box swinging on the screen. The Animation has been taken from a CodePen example and uses SASS for the animation. It makes 2 files: index.html and index.scss. Both of these files are linked and would overwrite the file with the same name.
+
+- "Create Car Blueprint" provides the user with an implementation of [Vivus.js](https://github.com/maxwellito/vivus). The example can be used as a background for webpages as it uses a simple implementation of the library to draw the blueprint of car. This example was taken from this article written by [Ivaylo Gerchev
+  ](https://www.sitepoint.com/how-to-create-the-invisible-pen-effect-in-svg-using-vivus-js/). The files created are index.html and index.js. The files with the same name would be overwritten.

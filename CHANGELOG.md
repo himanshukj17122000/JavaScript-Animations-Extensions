@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [0.1.7]
+
+- Drawing a car's blueprint for the webpage. A new library was used for this.
+
 ## [0.1.6]
 
 - Moving Ball for the webpage. The box can be used as a background for different webpages

@@ -275,7 +275,6 @@ function activate(context) {
     }
   );
 
-
   let MovingBox = vscode.commands.registerCommand(
     "webStarter.getBox",
     function () {
@@ -302,6 +301,31 @@ function activate(context) {
     }
   );
 
+  let CarBlueprint = vscode.commands.registerCommand(
+    "webStarter.getCar",
+    function () {
+      const HTMLContent = TypePartHTML.ViVusCar;
+      const JSContent = AppParticle.CarJs;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create index.html");
+        }
+        vscode.window.showInformationMessage("Created index.html");
+      });
+      fs.writeFile(path.join(folderPath, "index.js"), JSContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create index.js");
+        }
+        vscode.window.showInformationMessage("Created index.js");
+      });
+    }
+  );
 
   let BallAnimation = vscode.commands.registerCommand(
     "webStarter.ballAnimation",
@@ -403,6 +427,7 @@ function activate(context) {
   context.subscriptions.push(BallAnimation);
   context.subscriptions.push(CubeAnimation);
   context.subscriptions.push(MovingBox);
+  context.subscriptions.push(CarBlueprint);
 }
 exports.activate = activate;
 

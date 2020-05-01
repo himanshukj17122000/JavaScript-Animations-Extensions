@@ -282,7 +282,19 @@ autoClick();
 setCanvasSize();
 window.addEventListener("resize", setCanvasSize, false);
 `;
+
+const CarJs = `new Vivus('canvas', {
+  start: 'autostart',
+  type: 'delayed',
+  duration: 300,
+  animTimingFunction: Vivus.EASE
+}, function (car) {
+  setTimeout(function () {
+      car.reset().play();
+  }, 3000);
+});`
 module.exports = {
   AppParticles,
   Stagger,
+  CarJs
 };
