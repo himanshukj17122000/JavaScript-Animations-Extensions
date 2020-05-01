@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [0.1.9]
+
+- Icon changed.
+
 ## [0.1.8]
 
 - Drawing a rocket for the webpage. A new library was used for this.

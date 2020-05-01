@@ -12,7 +12,7 @@
     "url": "https://gitlab.oit.duke.edu/hkj4/vscodeextension-webanimations"
   },
   "description": "Creates basic code for fun animations and design files ",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.44.0"
@@ -35,8 +35,7 @@
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "webStarter.createAnime",
         "title": "Create Anime"
       },
