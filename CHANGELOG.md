@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [0.1.6]
+
+- Moving Ball for the webpage. The box can be used as a background for different webpages
+
 ## [0.1.5]
 
 - 3D Cube Animation for the webpage. A new library was used for this

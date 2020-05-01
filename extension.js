@@ -260,6 +260,7 @@ function activate(context) {
     "webStarter.getCube",
     function () {
       const HTMLContent = TypePartHTML.ThreeHTML;
+      const CssContent = CSS.BOxMoving;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
         .split(":")[1];
@@ -273,6 +274,35 @@ function activate(context) {
       });
     }
   );
+
+
+  let MovingBox = vscode.commands.registerCommand(
+    "webStarter.getBox",
+    function () {
+      const HTMLContent = TypePartHTML.BoxMoving;
+      const CssContent = CSS.BOxMoving;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create index.html");
+        }
+        vscode.window.showInformationMessage("Created index.html");
+      });
+      fs.writeFile(path.join(folderPath, "style.scss"), CssContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create style.scss");
+        }
+        vscode.window.showInformationMessage("Created style.scss");
+      });
+    }
+  );
+
+
   let BallAnimation = vscode.commands.registerCommand(
     "webStarter.ballAnimation",
     function () {
@@ -371,6 +401,8 @@ function activate(context) {
   context.subscriptions.push(corona);
   context.subscriptions.push(TextAnimation);
   context.subscriptions.push(BallAnimation);
+  context.subscriptions.push(CubeAnimation);
+  context.subscriptions.push(MovingBox);
 }
 exports.activate = activate;
 

@@ -11,7 +11,7 @@ const EmptyBall = `<!DOCTYPE html>
    <body>
      <b></b>
    </body>
- </html>`
+ </html>`;
 
 const TypePartHTML = `<!DOCTYPE html>
 
@@ -196,7 +196,29 @@ const ThreeHTML = `<html>
     </script>
 </body>
 
-</html>`
+</html>`;
+
+const BoxMoving = `<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.scss" />
+
+<body>
+    <div class="layers">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+
+</html>`;
 
 module.exports = {
   TypePartHTML,
@@ -206,5 +228,6 @@ module.exports = {
   HTMLTextAnim,
   BallAnimation,
   EmptyBall,
-  ThreeHTML
+  ThreeHTML,
+  BoxMoving,
 };
