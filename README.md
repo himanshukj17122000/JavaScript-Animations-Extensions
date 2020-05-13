@@ -2,7 +2,7 @@
 
 - This is a simple extension to allow the users to get a webpage with the particles animation on it. The users can then edit the web page to include the content they require for their own project.
 
-- Implement 9 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
+- Implement 10 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
 
 - Implement a styling sheet for your project that comes with styling options for almost all the components you would need in your project.
 
@@ -33,3 +33,5 @@ Make sure you are inside your project folder before running the commands. The fo
 
 - "Create Rocket" provides the user with an implementation of [Vivus.js](https://github.com/maxwellito/vivus). The example can be used as a background for webpages as it uses a simple implementation of the library to draw a rocket. This example was taken from this article written by [Ivaylo Gerchev
   ](https://www.sitepoint.com/how-to-create-the-invisible-pen-effect-in-svg-using-vivus-js/). The files created are rocket.html, rocket.css and rocket.js. The files with the same name would be overwritten.
+
+- "Create Scroll Reveal" provides the user with an implementation of [scrollreveal.js](https://github.com/jlmakes/scrollreveal). The example can be used to make the navigation bar in web pages. The implementation has been taken from [jsbin](https://jsbin.com/fuvusofere/edit?html,css,output). The command would creare 2 files- scroll.html and scroll.css. If there are files with the same name, they will be overwritten by running this command.

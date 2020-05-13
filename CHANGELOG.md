@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [1.2.0]
+
+- ScrollReveal javascript library has been added to create a new animation
+
 ## [0.1.9]
 
 - Icon changed.

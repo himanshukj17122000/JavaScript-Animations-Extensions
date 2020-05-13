@@ -363,6 +363,33 @@ function activate(context) {
     }
   );
 
+
+  let scrollReveal = vscode.commands.registerCommand(
+    "webStarter.getScroll",
+    function () {
+      const scrollHTMLContent = TypePartHTML.scrollHTML;
+      const scrollCSSContent = CSS.scrollCSS
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      fs.writeFile(path.join(folderPath, "scroll.html"), scrollHTMLContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create scroll.html");
+        }
+        vscode.window.showInformationMessage("Created scroll.html");
+      });
+      fs.writeFile(path.join(folderPath, "scroll.css"), scrollCSSContent, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create scroll.css");
+        }
+        vscode.window.showInformationMessage("Created scroll.css");
+      });
+    }
+  );
+
   let BallAnimation = vscode.commands.registerCommand(
     "webStarter.ballAnimation",
     function () {
@@ -465,6 +492,7 @@ function activate(context) {
   context.subscriptions.push(MovingBox);
   context.subscriptions.push(CarBlueprint);
   context.subscriptions.push(rocketAnim);
+  context.subscriptions.push(scrollReveal);
 }
 exports.activate = activate;
 

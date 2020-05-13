@@ -391,6 +391,36 @@ const RocketCSS = `path {
 .clear-stroke path {
     stroke: none;
 }`
+
+const scrollCSS = `/* utility */
+html.sr .load-hidden {
+    visibility: hidden;
+}
+
+.widget-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: black;
+    border-radius: 8px;
+}
+
+.widget {
+    width: 15%;
+    height: 50px;
+    flex: auto;
+    margin: 0.5rem;
+    background: white;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* extension */
+html.sr .widget {
+    visibility: hidden;
+}`
 module.exports = {
 	CSSContent,
 	CSSParticle,
@@ -399,5 +429,6 @@ module.exports = {
 	CSSText,
 	BallAnimation,
 	BOxMoving,
-	RocketCSS
+	RocketCSS,
+	scrollCSS
 };
