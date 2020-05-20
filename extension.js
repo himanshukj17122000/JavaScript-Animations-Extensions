@@ -1,17 +1,17 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const vscode = require("vscode");
-const path = require("path");
-const fs = require("fs");
-const particle = require("./particle");
-const typeWriter = require("./typewriter");
-const CSS = require("./Css");
-const TypePartHTML = require("./htmlContent");
-const AppParticle = require("./app");
-const fetch = require("node-fetch");
-const globalCSS = require("./global_styling");
-const axios = require("axios").default;
-var checkEmpty = require("extfs");
+const vscode = require('vscode');
+const path = require('path');
+const fs = require('fs');
+const particle = require('./particle');
+const typeWriter = require('./typewriter');
+const CSS = require('./Css');
+const TypePartHTML = require('./htmlContent');
+const AppParticle = require('./app');
+const fetch = require('node-fetch');
+const globalCSS = require('./global_styling');
+const axios = require('axios').default;
+var checkEmpty = require('extfs');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -27,7 +27,7 @@ function activate(context) {
     vscode.StatusBarAlignment.Right,
     100
   );
-  myStatusBar.command = "extensions.getCoronaUpdates";
+  myStatusBar.command = 'extensions.getCoronaUpdates';
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
@@ -35,7 +35,7 @@ function activate(context) {
 
   function checkCorona(data) {
     setInterval(function () {
-      axios.get("https://api.covid19api.com/summary").then((response) => {
+      axios.get('https://api.covid19api.com/summary').then(response => {
         // vscode.window.showInformationMessage(
         //   "The number of recovered people is " +
         //     response.data.Global.NewRecovered
@@ -51,16 +51,16 @@ function activate(context) {
         //   console.log(value);
         // });
         vscode.window.setStatusBarMessage(
-          "Recovered: " + response.data.Global.NewRecovered
+          'Recovered: ' + response.data.Global.NewRecovered
         );
       });
     }, 3000);
   }
 
   let corona = vscode.commands.registerCommand(
-    "webStarter.getCoronaUpdates",
+    'webStarter.getCoronaUpdates',
     function () {
-      axios.get("https://api.covid19api.com/summary").then((response) => {
+      axios.get('https://api.covid19api.com/summary').then(response => {
         // vscode.window.showInformationMessage(
         //   "The number of recovered people is " +
         //     response.data.Global.NewRecovered
@@ -68,16 +68,16 @@ function activate(context) {
         myStatusBar.text = response.data.Global.NewRecovered;
         myStatusBar.show();
         console.log(myStatusBar);
-        vscode.window.showInputBox().then((value) => {
+        vscode.window.showInputBox().then(value => {
           if (value == undefined) {
             return;
           }
           vscode.window.setStatusBarMessage(
-            "Recovered: " + response.data.Global.NewRecovered
+            'Recovered: ' + response.data.Global.NewRecovered
           );
         });
         vscode.window.setStatusBarMessage(
-          "Recovered: " + response.data.Global.NewRecovered
+          'Recovered: ' + response.data.Global.NewRecovered
         );
         checkCorona();
       });
@@ -85,7 +85,7 @@ function activate(context) {
   );
 
   let disposable = vscode.commands.registerCommand(
-    "webStarter.createTypeParticles",
+    'webStarter.createTypeParticles',
     function () {
       const HTMLContent = TypePartHTML.TypePartHTML;
       const typeScript = typeWriter.typeWriter;
@@ -94,46 +94,46 @@ function activate(context) {
       const CSSContent = CSS.CSSContent;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        .split(':')[1];
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "app.js"), JSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'app.js'), JSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create app.js");
+          vscode.window.showErrorMessage('Failed to create app.js');
         }
-        vscode.window.showInformationMessage("Created app.js");
+        vscode.window.showInformationMessage('Created app.js');
       });
-      fs.writeFile(path.join(folderPath, "particles.js"), particleJS, (err) => {
+      fs.writeFile(path.join(folderPath, 'particles.js'), particleJS, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create particles.js");
+          vscode.window.showErrorMessage('Failed to create particles.js');
         }
-        vscode.window.showInformationMessage("Created particles.js");
+        vscode.window.showInformationMessage('Created particles.js');
       });
-      fs.writeFile(path.join(folderPath, "style.css"), CSSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'style.css'), CSSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create style.css");
+          vscode.window.showErrorMessage('Failed to create style.css');
         }
-        vscode.window.showInformationMessage("Created style.css");
+        vscode.window.showInformationMessage('Created style.css');
       });
-      fs.writeFile(path.join(folderPath, "typewrite.js"), typeScript, (err) => {
+      fs.writeFile(path.join(folderPath, 'typewrite.js'), typeScript, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create typewrite.js");
+          vscode.window.showErrorMessage('Failed to create typewrite.js');
         }
-        vscode.window.showInformationMessage("Created typewrite.js");
+        vscode.window.showInformationMessage('Created typewrite.js');
       });
     }
   );
   let disposableType = vscode.commands.registerCommand(
-    "webStarter.createType",
+    'webStarter.createType',
     function () {
       const HTMLContent = TypePartHTML.HTMLType;
       const typeScript = typeWriter.typeWriter;
@@ -141,33 +141,33 @@ function activate(context) {
       const CSSContent = CSS.CSSType;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        .split(':')[1];
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "style.css"), CSSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'style.css'), CSSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create style.css");
+          vscode.window.showErrorMessage('Failed to create style.css');
         }
-        vscode.window.showInformationMessage("Created style.css");
+        vscode.window.showInformationMessage('Created style.css');
       });
-      fs.writeFile(path.join(folderPath, "typewrite.js"), typeScript, (err) => {
+      fs.writeFile(path.join(folderPath, 'typewrite.js'), typeScript, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create typewrite.js");
+          vscode.window.showErrorMessage('Failed to create typewrite.js');
         }
-        vscode.window.showInformationMessage("Created typewrite.js");
+        vscode.window.showInformationMessage('Created typewrite.js');
       });
     }
   );
 
   let rocketAnim = vscode.commands.registerCommand(
-    "webStarter.createRocket",
+    'webStarter.createRocket',
     function () {
       const HTMLContent = TypePartHTML.RocketHTML;
       const RocketScript = AppParticle.RocketJs;
@@ -175,88 +175,87 @@ function activate(context) {
       const CSSContent = CSS.RocketCSS;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      fs.writeFile(path.join(folderPath, "rocket.html"), HTMLContent, (err) => {
+        .split(':')[1];
+      fs.writeFile(path.join(folderPath, 'rocket.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create rocket.html");
+          vscode.window.showErrorMessage('Failed to create rocket.html');
         }
-        vscode.window.showInformationMessage("Created rocket.html");
+        vscode.window.showInformationMessage('Created rocket.html');
       });
-      fs.writeFile(path.join(folderPath, "rocket.css"), CSSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'rocket.css'), CSSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create rocket.css");
+          vscode.window.showErrorMessage('Failed to create rocket.css');
         }
-        vscode.window.showInformationMessage("Created rocket.css");
+        vscode.window.showInformationMessage('Created rocket.css');
       });
-      fs.writeFile(path.join(folderPath, "rocket.js"), RocketScript, (err) => {
+      fs.writeFile(path.join(folderPath, 'rocket.js'), RocketScript, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create rocket.js");
+          vscode.window.showErrorMessage('Failed to create rocket.js');
         }
-        vscode.window.showInformationMessage("Created rocket.js");
+        vscode.window.showInformationMessage('Created rocket.js');
       });
     }
   );
 
-
   let disposableAnime = vscode.commands.registerCommand(
-    "webStarter.createAnime",
+    'webStarter.createAnime',
     function () {
       const HTMLContent = TypePartHTML.HTMLAnime;
       const JSContent = AppParticle.Stagger;
       const CSSContent = CSS.CSSAnime;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        .split(':')[1];
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "animation.js"), JSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'animation.js'), JSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create animation.js");
+          vscode.window.showErrorMessage('Failed to create animation.js');
         }
-        vscode.window.showInformationMessage("Created animation.js");
+        vscode.window.showInformationMessage('Created animation.js');
       });
 
-      fs.writeFile(path.join(folderPath, "style.css"), CSSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'style.css'), CSSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create style.css");
+          vscode.window.showErrorMessage('Failed to create style.css');
         }
-        vscode.window.showInformationMessage("Created style.css");
+        vscode.window.showInformationMessage('Created style.css');
       });
     }
   );
   let disposableGlobal = vscode.commands.registerCommand(
-    "webStarter.createGlobal",
+    'webStarter.createGlobal',
     function () {
       const GlobalCSS = globalCSS.global_css;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      vscode.window.showInputBox().then((value) => {
+        .split(':')[1];
+      vscode.window.showInputBox().then(value => {
         if (value == undefined) {
           return;
         }
         fs.appendFile(
-          path.join(folderPath, value.toString() + ".css"),
+          path.join(folderPath, value.toString() + '.css'),
           GlobalCSS,
-          (err) => {
+          err => {
             if (err) {
               console.log(err);
               vscode.window.showErrorMessage(
-                `Failed to create ${value.toString() + ".css"} `
+                `Failed to create ${value.toString() + '.css'} `
               );
             }
             vscode.window.showInformationMessage(
-              `Created ${value.toString() + ".css"}`
+              `Created ${value.toString() + '.css'}`
             );
           }
         );
@@ -264,181 +263,214 @@ function activate(context) {
     }
   );
   let TextAnimation = vscode.commands.registerCommand(
-    "webStarter.getTextAnim",
+    'webStarter.getTextAnim',
     function () {
       const HTMLContent = TypePartHTML.HTMLTextAnim;
       const TextAnimation = CSS.CSSText;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(
-        path.join(folderPath, "styles.css"),
-        TextAnimation,
-        (err) => {
-          if (err) {
-            console.log(err);
-            vscode.window.showErrorMessage("Failed to create styles.css");
-          }
-          vscode.window.showInformationMessage("Created styles.css");
+      fs.writeFile(path.join(folderPath, 'styles.css'), TextAnimation, err => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage('Failed to create styles.css');
         }
-      );
+        vscode.window.showInformationMessage('Created styles.css');
+      });
     }
   );
   let CubeAnimation = vscode.commands.registerCommand(
-    "webStarter.getCube",
+    'webStarter.getCube',
     function () {
       const HTMLContent = TypePartHTML.ThreeHTML;
       const CssContent = CSS.BOxMoving;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
     }
   );
 
   let MovingBox = vscode.commands.registerCommand(
-    "webStarter.getBox",
+    'webStarter.getBox',
     function () {
       const HTMLContent = TypePartHTML.BoxMoving;
       const CssContent = CSS.BOxMoving;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "style.scss"), CssContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'style.scss'), CssContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create style.scss");
+          vscode.window.showErrorMessage('Failed to create style.scss');
         }
-        vscode.window.showInformationMessage("Created style.scss");
+        vscode.window.showInformationMessage('Created style.scss');
       });
     }
   );
 
   let CarBlueprint = vscode.commands.registerCommand(
-    "webStarter.getCar",
+    'webStarter.getCar',
     function () {
       const HTMLContent = TypePartHTML.ViVusCar;
       const JSContent = AppParticle.CarJs;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "index.js"), JSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'index.js'), JSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.js");
+          vscode.window.showErrorMessage('Failed to create index.js');
         }
-        vscode.window.showInformationMessage("Created index.js");
+        vscode.window.showInformationMessage('Created index.js');
       });
     }
   );
-
 
   let scrollReveal = vscode.commands.registerCommand(
-    "webStarter.getScroll",
+    'webStarter.getScroll',
     function () {
       const scrollHTMLContent = TypePartHTML.scrollHTML;
-      const scrollCSSContent = CSS.scrollCSS
+      const scrollCSSContent = CSS.scrollCSS;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "scroll.html"), scrollHTMLContent, (err) => {
-        if (err) {
-          console.log(err);
-          vscode.window.showErrorMessage("Failed to create scroll.html");
+      fs.writeFile(
+        path.join(folderPath, 'scroll.html'),
+        scrollHTMLContent,
+        err => {
+          if (err) {
+            console.log(err);
+            vscode.window.showErrorMessage('Failed to create scroll.html');
+          }
+          vscode.window.showInformationMessage('Created scroll.html');
         }
-        vscode.window.showInformationMessage("Created scroll.html");
-      });
-      fs.writeFile(path.join(folderPath, "scroll.css"), scrollCSSContent, (err) => {
-        if (err) {
-          console.log(err);
-          vscode.window.showErrorMessage("Failed to create scroll.css");
+      );
+      fs.writeFile(
+        path.join(folderPath, 'scroll.css'),
+        scrollCSSContent,
+        err => {
+          if (err) {
+            console.log(err);
+            vscode.window.showErrorMessage('Failed to create scroll.css');
+          }
+          vscode.window.showInformationMessage('Created scroll.css');
         }
-        vscode.window.showInformationMessage("Created scroll.css");
-      });
+      );
     }
   );
 
-
-
   let moBoxes = vscode.commands.registerCommand(
-    "webStarter.getMoBoxes",
+    'webStarter.getMoBoxes',
     function () {
       const MoBoxesHTML = TypePartHTML.moHTML;
       const MoBoxesCSS = CSS.moCSS;
       const MoBoxesJS = AppParticle.Mojs;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      fs.writeFile(path.join(folderPath, "MoBoxes.html"), MoBoxesHTML, (err) => {
+      fs.writeFile(path.join(folderPath, 'MoBoxes.html'), MoBoxesHTML, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create MoBoxes.html");
+          vscode.window.showErrorMessage('Failed to create MoBoxes.html');
         }
-        vscode.window.showInformationMessage("Created MoBoxes.html");
+        vscode.window.showInformationMessage('Created MoBoxes.html');
       });
-      fs.writeFile(path.join(folderPath, "MoBoxes.css"), MoBoxesCSS, (err) => {
+      fs.writeFile(path.join(folderPath, 'MoBoxes.css'), MoBoxesCSS, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create MoBoxes.css");
+          vscode.window.showErrorMessage('Failed to create MoBoxes.css');
         }
-        vscode.window.showInformationMessage("Created MoBoxes.css");
+        vscode.window.showInformationMessage('Created MoBoxes.css');
       });
-      fs.writeFile(path.join(folderPath, "MoBoxes.js"), MoBoxesJS, (err) => {
+      fs.writeFile(path.join(folderPath, 'MoBoxes.js'), MoBoxesJS, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create MoBoxes.js");
+          vscode.window.showErrorMessage('Failed to create MoBoxes.js');
         }
-        vscode.window.showInformationMessage("Created MoBoxes.js");
+        vscode.window.showInformationMessage('Created MoBoxes.js');
       });
     }
   );
 
+  let moMusic = vscode.commands.registerCommand(
+    'webStarter.getMoMusic',
+    function () {
+      const MoMusicHTML = TypePartHTML.moMusicHTML;
+      const MoMusicCSS = CSS.MoMusicCSS;
+      const MoMusicJS = AppParticle.moMusicJS;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(':')[1];
 
+      fs.writeFile(path.join(folderPath, 'MoMusic.html'), MoMusicHTML, err => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage('Failed to create MoMusic.html');
+        }
+        vscode.window.showInformationMessage('Created MoMusic.html');
+      });
+      fs.writeFile(path.join(folderPath, 'MoMusic.css'), MoMusicCSS, err => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage('Failed to create MoMusic.css');
+        }
+        vscode.window.showInformationMessage('Created MoMusic.css');
+      });
+      fs.writeFile(path.join(folderPath, 'MoMusic.js'), MoMusicJS, err => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage('Failed to create MoMusic.js');
+        }
+        vscode.window.showInformationMessage('Created MoMusic.js');
+      });
+    }
+  );
 
   let BallAnimation = vscode.commands.registerCommand(
-    "webStarter.ballAnimation",
+    'webStarter.ballAnimation',
     function () {
       const BallHTML = TypePartHTML.BallAnimation;
       const EmptyHTML = TypePartHTML.EmptyBall;
       const BallAnimaton = CSS.BallAnimation;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
+        .split(':')[1];
 
-      vscode.window.showInputBox().then((value) => {
+      vscode.window.showInputBox().then(value => {
         if (value == undefined) {
           return;
         }
@@ -451,25 +483,25 @@ function activate(context) {
         //     vscode.window.showInformationMessage("Created index.html");
         //   });
         // });
-        fs.appendFile(path.join(folderPath, "index.html"), BallHTML, (err) => {
+        fs.appendFile(path.join(folderPath, 'index.html'), BallHTML, err => {
           if (err) {
             console.log(err);
-            vscode.window.showErrorMessage("Failed to create index.html");
+            vscode.window.showErrorMessage('Failed to create index.html');
           }
-          vscode.window.showInformationMessage("Created index.html");
+          vscode.window.showInformationMessage('Created index.html');
         });
         fs.appendFile(
-          path.join(folderPath, value.toString() + ".css"),
+          path.join(folderPath, value.toString() + '.css'),
           BallAnimaton,
-          (err) => {
+          err => {
             if (err) {
               console.log(err);
               vscode.window.showErrorMessage(
-                `Failed to create ${value.toString() + ".css"} `
+                `Failed to create ${value.toString() + '.css'} `
               );
             }
             vscode.window.showInformationMessage(
-              `Created ${value.toString() + ".css"}`
+              `Created ${value.toString() + '.css'}`
             );
           }
         );
@@ -478,7 +510,7 @@ function activate(context) {
   );
 
   let disposableParticle = vscode.commands.registerCommand(
-    "webStarter.createParticles",
+    'webStarter.createParticles',
     function () {
       const HTMLContent = TypePartHTML.HTMLParticle;
       const JSContent = AppParticle.AppParticles;
@@ -486,34 +518,34 @@ function activate(context) {
       const CSSContent = CSS.CSSParticle;
       const folderPath = vscode.workspace.workspaceFolders[0].uri
         .toString()
-        .split(":")[1];
-      fs.writeFile(path.join(folderPath, "index.html"), HTMLContent, (err) => {
+        .split(':')[1];
+      fs.writeFile(path.join(folderPath, 'index.html'), HTMLContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create index.html");
+          vscode.window.showErrorMessage('Failed to create index.html');
         }
-        vscode.window.showInformationMessage("Created index.html");
+        vscode.window.showInformationMessage('Created index.html');
       });
-      fs.writeFile(path.join(folderPath, "app.js"), JSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'app.js'), JSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create app.js");
+          vscode.window.showErrorMessage('Failed to create app.js');
         }
-        vscode.window.showInformationMessage("Created app.js");
+        vscode.window.showInformationMessage('Created app.js');
       });
-      fs.writeFile(path.join(folderPath, "particles.js"), particleJS, (err) => {
+      fs.writeFile(path.join(folderPath, 'particles.js'), particleJS, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create particles.js");
+          vscode.window.showErrorMessage('Failed to create particles.js');
         }
-        vscode.window.showInformationMessage("Created particles.js");
+        vscode.window.showInformationMessage('Created particles.js');
       });
-      fs.writeFile(path.join(folderPath, "style.css"), CSSContent, (err) => {
+      fs.writeFile(path.join(folderPath, 'style.css'), CSSContent, err => {
         if (err) {
           console.log(err);
-          vscode.window.showErrorMessage("Failed to create style.css");
+          vscode.window.showErrorMessage('Failed to create style.css');
         }
-        vscode.window.showInformationMessage("Created style.css");
+        vscode.window.showInformationMessage('Created style.css');
       });
     }
   );
@@ -532,6 +564,7 @@ function activate(context) {
   context.subscriptions.push(rocketAnim);
   context.subscriptions.push(scrollReveal);
   context.subscriptions.push(moBoxes);
+  context.subscriptions.push(moMusic);
 }
 exports.activate = activate;
 

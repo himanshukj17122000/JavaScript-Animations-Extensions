@@ -2,6 +2,10 @@
 
 All notable changes to the "webStarter" extension will be documented in this file.
 
+## [0.2.2]
+
+- Mo javascript library example to present a radio that can play music
+
 ## [0.2.1]
 
 - Mo javascript library has been added to create a new animation

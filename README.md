@@ -2,7 +2,7 @@
 
 - This is a simple extension to allow the users to get a webpage with the particles animation on it. The users can then edit the web page to include the content they require for their own project.
 
-- Implement 11 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
+- Implement 12 amazing animations using the input field of your vs-code. You can even play music using one of the animations! Each command would provide you different files that can easily be changed to improve the animations.
 
 - Implement a styling sheet for your project that comes with styling options for almost all the components you would need in your project.
 
@@ -37,3 +37,5 @@ Make sure you are inside your project folder before running the commands. The fo
 - "Create Scroll Reveal" provides the user with an implementation of [scrollreveal.js](https://github.com/jlmakes/scrollreveal). The example can be used to make the navigation bar in web pages. The implementation has been taken from [jsbin](https://jsbin.com/fuvusofere/edit?html,css,output). The command would creare 2 files- scroll.html and scroll.css. If there are files with the same name, they will be overwritten by running this command.
 
 - "Get Motion Anim" provides the user with an implementation of [Mo.js](https://github.com/mojs/mojs). The example can be changed to make shapes that can be animated on the screen. The implementation has been taken from [codepen](https://blog.codepen.io/2017/09/22/fun-mo-js/). The command would creare 3 files- MoBoxes.html, MoBoxes.css and MoBoxes.js. If there are files with the same name, they will be overwritten by running this command.
+
+- "Create Mo Radio" provides the user with an implementation of [Mo.js](https://github.com/mojs/mojs). The example can be changed to make shapes that can be animated on the screen. The implementation has been taken from [csstricks](https://css-tricks.com/introduction-mo-js/). The command would creare 3 files- MoMusic.html, MoMusic.css and MoMusic.js. A radio playing music is made and this music can be muted as well. If there are files with the same name, they will be overwritten by running this command.

@@ -111,7 +111,7 @@ b {
 	to {
 		top: 95%;
 	}
-}`
+}`;
 const CSSContent = `html,
 	  body,
 	  h1,
@@ -344,8 +344,7 @@ p {
             transform: rotateX(45deg) rotateZ(45deg) translate3d(0vh, 0vh, -$i*17vh) scale(0.5 + 0.05*$i);
         }
     }
-}`
-
+}`;
 
 const RocketCSS = `path {
     fill-opacity: 0;
@@ -390,7 +389,7 @@ const RocketCSS = `path {
 
 .clear-stroke path {
     stroke: none;
-}`
+}`;
 
 const scrollCSS = `/* utility */
 html.sr .load-hidden {
@@ -420,7 +419,7 @@ html.sr .load-hidden {
 /* extension */
 html.sr .widget {
     visibility: hidden;
-}`
+}`;
 
 const moCSS = `body,
 html {
@@ -474,16 +473,59 @@ html {
     opacity: .25;
     border-radius: 50%;
     z-index: 0;
-}`
+}`;
+
+const MoMusicCSS = `body,
+html {
+    background: #608bbf;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Rubik", sans-serif;
+    color: #2b7ba0;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+#radio {
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    margin-left: -75px;
+    margin-top: -75px;
+    -webkit-transform: translateX(-10px) translateY(0) rotate(-10deg);
+    transform: translateX(-10px) translateY(0) rotate(-10deg);
+    position: absolute;
+}
+
+#mute {
+    margin: 10px;
+    border: none;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    margin-left: -40px;
+    background: #235084;
+    color: #c0d3e8;
+    font-family: 'Rubik', sans-serif;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    width: 100px;
+    text-align: center;
+}`;
 module.exports = {
-	CSSContent,
-	CSSParticle,
-	CSSType,
-	CSSAnime,
-	CSSText,
-	BallAnimation,
-	BOxMoving,
-	RocketCSS,
-	scrollCSS,
-	moCSS
+  CSSContent,
+  CSSParticle,
+  CSSType,
+  CSSAnime,
+  CSSText,
+  BallAnimation,
+  BOxMoving,
+  RocketCSS,
+  scrollCSS,
+  moCSS,
+  MoMusicCSS,
 };

@@ -12,7 +12,7 @@
     "url": "https://gitlab.oit.duke.edu/hkj4/vscodeextension-webanimations"
   },
   "description": "Creates basic code for fun animations and design files ",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.44.0"
@@ -33,13 +33,19 @@
     "onCommand:webStarter.getCar",
     "onCommand:webStarter.createRocket",
     "onCommand:webStarter.getScroll",
-    "onCommand:webStarter.getMoBoxes"
+    "onCommand:webStarter.getMoBoxes",
+    "onCommand:webStarter.getMoMusic"
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
+    "commands": [
+      {
         "command": "webStarter.createAnime",
         "title": "Create Anime"
+      },
+      {
+        "command": "webStarter.getMoMusic",
+        "title": "Create Mo Radio"
       },
       {
         "command": "webStarter.getMoBoxes",
