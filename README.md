@@ -2,7 +2,7 @@
 
 - This is a simple extension to allow the users to get a webpage with the particles animation on it. The users can then edit the web page to include the content they require for their own project.
 
-- Implement 10 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
+- Implement 11 different animations using the input field of your vs-code. Each command would provide you different files that can easily be changed to improve the animations.
 
 - Implement a styling sheet for your project that comes with styling options for almost all the components you would need in your project.
 
@@ -35,3 +35,5 @@ Make sure you are inside your project folder before running the commands. The fo
   ](https://www.sitepoint.com/how-to-create-the-invisible-pen-effect-in-svg-using-vivus-js/). The files created are rocket.html, rocket.css and rocket.js. The files with the same name would be overwritten.
 
 - "Create Scroll Reveal" provides the user with an implementation of [scrollreveal.js](https://github.com/jlmakes/scrollreveal). The example can be used to make the navigation bar in web pages. The implementation has been taken from [jsbin](https://jsbin.com/fuvusofere/edit?html,css,output). The command would creare 2 files- scroll.html and scroll.css. If there are files with the same name, they will be overwritten by running this command.
+
+- "Get Motion Anim" provides the user with an implementation of [Mo.js](https://github.com/mojs/mojs). The example can be changed to make shapes that can be animated on the screen. The implementation has been taken from [codepen](https://blog.codepen.io/2017/09/22/fun-mo-js/). The command would creare 3 files- MoBoxes.html, MoBoxes.css and MoBoxes.js. If there are files with the same name, they will be overwritten by running this command.

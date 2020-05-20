@@ -390,6 +390,44 @@ function activate(context) {
     }
   );
 
+
+
+  let moBoxes = vscode.commands.registerCommand(
+    "webStarter.getMoBoxes",
+    function () {
+      const MoBoxesHTML = TypePartHTML.moHTML;
+      const MoBoxesCSS = CSS.moCSS;
+      const MoBoxesJS = AppParticle.Mojs;
+      const folderPath = vscode.workspace.workspaceFolders[0].uri
+        .toString()
+        .split(":")[1];
+
+      fs.writeFile(path.join(folderPath, "MoBoxes.html"), MoBoxesHTML, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create MoBoxes.html");
+        }
+        vscode.window.showInformationMessage("Created MoBoxes.html");
+      });
+      fs.writeFile(path.join(folderPath, "MoBoxes.css"), MoBoxesCSS, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create MoBoxes.css");
+        }
+        vscode.window.showInformationMessage("Created MoBoxes.css");
+      });
+      fs.writeFile(path.join(folderPath, "MoBoxes.js"), MoBoxesJS, (err) => {
+        if (err) {
+          console.log(err);
+          vscode.window.showErrorMessage("Failed to create MoBoxes.js");
+        }
+        vscode.window.showInformationMessage("Created MoBoxes.js");
+      });
+    }
+  );
+
+
+
   let BallAnimation = vscode.commands.registerCommand(
     "webStarter.ballAnimation",
     function () {
@@ -493,6 +531,7 @@ function activate(context) {
   context.subscriptions.push(CarBlueprint);
   context.subscriptions.push(rocketAnim);
   context.subscriptions.push(scrollReveal);
+  context.subscriptions.push(moBoxes);
 }
 exports.activate = activate;
 

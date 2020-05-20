@@ -220,7 +220,6 @@ const BoxMoving = `<!DOCTYPE html>
 
 </html>`;
 
-
 const ViVusCar = `<!DOCTYPE html>
 <html>
 
@@ -1168,7 +1167,7 @@ const ViVusCar = `<!DOCTYPE html>
     <script src="index.js"></script>
 </body>
 
-</html>`
+</html>`;
 
 const RocketHTML = `<!DOCTYPE html>
 <html>
@@ -1221,8 +1220,7 @@ const RocketHTML = `<!DOCTYPE html>
    <script src="rocket.js"></script>
 </body>
 
-</html>`
-
+</html>`;
 
 const scrollHTML = `<!DOCTYPE html>
 <html>
@@ -1259,18 +1257,38 @@ const scrollHTML = `<!DOCTYPE html>
 
 </body>
 
-</html>`
+</html>`;
+
+const moHTML = `<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href='MoBoxes.css' />
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/mojs/0.288.1/mo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/mojs-player/0.43.15/mojs-player.min.js"></script>
+<div class="scene" id="js-scene">
+        <div class="el el--small" id="js-el-small"></div>
+        <div class="el" id="js-el"></div>
+        <div class="shadow" id="js-shadow"></div>
+    </div>
+    <script src="MoBoxes.js">
+</script>
+</body>
+</html>`;
 module.exports = {
-   TypePartHTML,
-   HTMLParticle,
-   HTMLType,
-   HTMLAnime,
-   HTMLTextAnim,
-   BallAnimation,
-   EmptyBall,
-   ThreeHTML,
-   BoxMoving,
-   ViVusCar,
-   RocketHTML,
-   scrollHTML
+  TypePartHTML,
+  HTMLParticle,
+  HTMLType,
+  HTMLAnime,
+  HTMLTextAnim,
+  BallAnimation,
+  EmptyBall,
+  ThreeHTML,
+  BoxMoving,
+  ViVusCar,
+  RocketHTML,
+  scrollHTML,
+  moHTML,
 };

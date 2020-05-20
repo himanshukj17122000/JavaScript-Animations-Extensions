@@ -421,6 +421,60 @@ html.sr .load-hidden {
 html.sr .widget {
     visibility: hidden;
 }`
+
+const moCSS = `body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #FFF5E4;
+}
+
+.el {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    background: #572B53;
+    border-radius: 3px;
+    z-index: 1;
+    /*transform-origin: center bottom;*/
+}
+
+.el--small {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -50px;
+    background: #230323;
+    z-index: 2;
+}
+
+.scene {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+.shadow {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 80px;
+    height: 7px;
+    margin-left: -40px;
+    margin-top: -2px;
+    background: #333;
+    opacity: .25;
+    border-radius: 50%;
+    z-index: 0;
+}`
 module.exports = {
 	CSSContent,
 	CSSParticle,
@@ -430,5 +484,6 @@ module.exports = {
 	BallAnimation,
 	BOxMoving,
 	RocketCSS,
-	scrollCSS
+	scrollCSS,
+	moCSS
 };
